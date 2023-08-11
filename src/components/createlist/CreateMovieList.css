@@ -1,0 +1,58 @@
+/* CreateMovieList.css */
+.movie-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movie-card {
+  width: 200px;
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.movie-card-front {
+  background-color: #fff;
+  transform: rotateY(0deg);
+  display: flex; /* Add display property */
+  flex-direction: column; /* Add flex-direction property */
+  align-items: center; /* Add align-items property */
+  justify-content: center; /* Add justify-content property */
+  text-align: center;
+}
+
+.movie-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.flipped .movie-card-inner {
+  transform: rotateY(180deg);
+}
+.flipped .movie-card-back .movie-card-text {
+  transform: rotateY(180deg);
+}
+
+.movie-card-front,
+.movie-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column; /* Adjust for proper alignment */
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+/* Apply rotation to text elements within movie-card-back */
+.flipped .movie-card-back .movie-details-text {
+  transform: rotate(180deg);
+}

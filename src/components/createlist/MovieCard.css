@@ -1,0 +1,41 @@
+/* MovieCard.css */
+.movie-card {
+  width: 200px;
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.movie-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.movie-card.flipped .movie-card-inner {
+  transform: rotateY(180deg);
+}
+
+.movie-card-front,
+.movie-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+.movie-card-back {
+  transform: rotateY(180deg);
+  padding: 20px;
+  box-sizing: border-box;
+  white-space: normal;
+}
