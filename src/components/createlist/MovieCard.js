@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import Loader from "../Loader"; // Import the Loader component
+import Loader from "../Loader";
 import "./MovieCard.css";
 
 function MovieCard({ movie, onDeleteMovie }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading data
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -20,7 +19,7 @@ function MovieCard({ movie, onDeleteMovie }) {
 
   return (
     <div className="card movie-card">
-      {isLoading ? ( // Conditional rendering based on isLoading state
+      {isLoading ? (
         <Loader />
       ) : (
         <div className="card-body">

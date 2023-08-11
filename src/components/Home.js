@@ -5,7 +5,6 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading data
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);

@@ -75,8 +75,8 @@ function About() {
             image={aundale}
             email="aundalewalker@pursuit.org"
             skillset={"JS, CSS, JavaScript, React, and others"}
-            bio="Devin is a skilled designer with a keen eye for aesthetics."
-            githubLink="https://github.com/devinjlewis"
+            bio="Aundale is a skilled designer with a keen eye for aesthetics."
+            githubLink="https://github.com/daleskiii"
           />
         </div>
       )}

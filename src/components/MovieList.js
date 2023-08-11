@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMovieLists } from "../api/api";
 import "./MovieList.css";
-import Loader from "./Loader"; // Import the Loader component
+import Loader from "./Loader";
 
 function MovieList() {
   const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Add isLoading state
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchMovieList();
@@ -16,10 +16,10 @@ function MovieList() {
     try {
       const movieList = await getMovieLists();
       setMovies(movieList);
-      setIsLoading(false); // Set isLoading to false once data is fetched
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching movie list:", error);
-      setIsLoading(false); // Set isLoading to false in case of error
+      setIsLoading(false);
     }
   }
 
@@ -32,7 +32,7 @@ function MovieList() {
   return (
     <div className="container mt-5">
       <h2 className="mb-4">Movie List</h2>
-      {/* Conditional rendering based on isLoading state */}
+
       {isLoading ? (
         <Loader />
       ) : (

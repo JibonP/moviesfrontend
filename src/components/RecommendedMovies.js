@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Loader from "./Loader"; // Import the Loader component
+import Loader from "./Loader";
 
 function RecommendedMovies() {
   const [recommendedMovies, setRecommendedMovies] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("action");
-  const [isLoading, setIsLoading] = useState(false); // Add isLoading state
+  const [isLoading, setIsLoading] = useState(false);
 
   const apiKey = "e0b1d970";
 
   const fetchRecommendedMovies = async () => {
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
     try {
       const response = await axios.get(
         `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${selectedGenre}`
@@ -34,7 +34,7 @@ function RecommendedMovies() {
     } catch (error) {
       console.error("Error fetching recommended movies:", error);
     }
-    setIsLoading(false); // Stop loading
+    setIsLoading(false);
   };
 
   const handleGenreChange = async (event) => {
@@ -58,7 +58,6 @@ function RecommendedMovies() {
           <option value="action">Action</option>
           <option value="comedy">Comedy</option>
           <option value="drama">Drama</option>
-          {/* Add more genre options */}
         </select>
         <button
           onClick={fetchRecommendedMovies}
@@ -68,7 +67,7 @@ function RecommendedMovies() {
         </button>
       </div>
       <ul className="list-group">
-        {isLoading ? ( // Display loader while isLoading is true
+        {isLoading ? (
           <Loader />
         ) : (
           recommendedMovies.map((movie) => (

@@ -82,7 +82,7 @@ function MovieReviews() {
     <div className="container mt-5">
       <h2 className="text-center">Movie Reviews</h2>
       {isLoading ? (
-        <Loader /> // Show the loader when isLoading is true
+        <Loader />
       ) : (
         <ul className="list-group">
           {movieReviews.map((review) => (

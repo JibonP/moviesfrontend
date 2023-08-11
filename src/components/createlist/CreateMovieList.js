@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
-import Loader from "../Loader"; // Import the Loader component
+import Loader from "../Loader";
 import "./CreateMovieList.css";
 
 function CreateMovieList() {
@@ -8,22 +8,21 @@ function CreateMovieList() {
   const [movieDescription, setMovieDescription] = useState("");
   const [movieRating, setMovieRating] = useState("");
   const [movieList, setMovieList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // State for loading indicator
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading data
     setTimeout(() => {
       const storedMovieList =
         JSON.parse(localStorage.getItem("movieList")) || [];
       setMovieList(storedMovieList);
-      setIsLoading(false); // Once data is loaded, set isLoading to false
+      setIsLoading(false);
     }, 2000);
   }, []);
 
   const handleCreate = () => {
     if (movieName && movieDescription && movieRating) {
       const newMovie = {
-        id: Date.now(), // Adding unique ID for each movie
+        id: Date.now(),
         name: movieName,
         description: movieDescription,
         rating: movieRating,
@@ -74,7 +73,7 @@ function CreateMovieList() {
           Add Movie
         </button>
       </div>
-      {isLoading ? ( // Conditional rendering based on isLoading state
+      {isLoading ? (
         <Loader />
       ) : (
         <div className="movie-card-container">
