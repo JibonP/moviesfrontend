@@ -13,7 +13,7 @@ function RecommendedMovies() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${selectedGenre}`
+        `https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${selectedGenre}`
       );
 
       if (response.data.Search) {
@@ -21,7 +21,7 @@ function RecommendedMovies() {
         const detailedMovieList = await Promise.all(
           movieList.map(async (movie) => {
             const detailedResponse = await axios.get(
-              `http://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`
+              `https://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`
             );
             return detailedResponse.data;
           })
