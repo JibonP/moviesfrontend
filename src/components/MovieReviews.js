@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import {
   getMovieReviews,
@@ -25,11 +25,7 @@ function MovieReviews() {
     movie_id: movieId,
   });
 
-  useEffect(() => {
-    fetchMovieReviews();
-  }, [movieId]);
-
-  async function fetchMovieReviews() {
+  const fetchMovieReviews = useCallback(async () => {
     try {
       const reviews = await getMovieReviews(movieId);
       setMovieReviews(reviews);
@@ -38,7 +34,11 @@ function MovieReviews() {
       console.error("Error fetching movie reviews:", error);
       setIsLoading(false);
     }
-  }
+  }, [movieId]); // Include movieId as a dependency
+
+  useEffect(() => {
+    fetchMovieReviews();
+  }, [fetchMovieReviews]);
 
   const handleCreateReview = async () => {
     try {
