@@ -14,10 +14,10 @@
 .movie-card-front {
   background-color: #fff;
   transform: rotateY(0deg);
-  display: flex; /* Add display property */
-  flex-direction: column; /* Add flex-direction property */
-  align-items: center; /* Add align-items property */
-  justify-content: center; /* Add justify-content property */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -43,7 +43,7 @@
   border-radius: 10px;
   background-color: #fff;
   display: flex;
-  flex-direction: column; /* Adjust for proper alignment */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 18px;
@@ -52,7 +52,6 @@
   backface-visibility: hidden;
 }
 
-/* Apply rotation to text elements within movie-card-back */
 .flipped .movie-card-back .movie-details-text {
   transform: rotate(180deg);
 }
