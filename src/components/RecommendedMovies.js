@@ -7,7 +7,7 @@ function RecommendedMovies() {
   const [selectedGenre, setSelectedGenre] = useState("action");
   const [isLoading, setIsLoading] = useState(false);
 
-  const apiKey = "e0b1d970";
+  const apiKey = process.env.API_KEY;
 
   const fetchRecommendedMovies = async () => {
     setIsLoading(true);
